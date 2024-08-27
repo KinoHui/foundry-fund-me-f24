@@ -34,7 +34,7 @@ contract FundMeTest is Test {
     }
 
     function testPricedFeedVersionIsAccurate() public view {
-        uint version = fundMe.getVersion();
+        uint256 version = fundMe.getVersion();
         assertEq(version, 4);
     }
 
@@ -79,10 +79,7 @@ contract FundMeTest is Test {
         // Assert
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundMeBalance = address(fundMe).balance;
-        assertEq(
-            startingOwnerBalance + startingFundMeBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingOwnerBalance + startingFundMeBalance, endingOwnerBalance);
     }
 
     function testWithdrawCheaperWithASingleFunder() public funded {
@@ -98,10 +95,7 @@ contract FundMeTest is Test {
         // Assert
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundMeBalance = address(fundMe).balance;
-        assertEq(
-            startingOwnerBalance + startingFundMeBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingOwnerBalance + startingFundMeBalance, endingOwnerBalance);
     }
 
     function testWithdrawWithMultipleFunder() public funded {
@@ -119,10 +113,7 @@ contract FundMeTest is Test {
 
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundMeBalance = address(fundMe).balance;
-        assertEq(
-            startingOwnerBalance + startingFundMeBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingOwnerBalance + startingFundMeBalance, endingOwnerBalance);
     }
 
     function testPrintStorageData() public {
